@@ -22,7 +22,8 @@ const Magazine = (props) => {
             ${page ? `&page=${page}` : null}
             ${limit?`&limit=${limit}`:null}`)  
             .then(res => res.ok ? res.json() : null)
-            .then(data => {
+                .then(data => {
+                console.log(data.data.map(d=>(d.title)))
                 setManga(data.data)
                 limitPages(data.pagination.last_visible_page)
             })
@@ -40,11 +41,11 @@ const Magazine = (props) => {
 
     return (
         
-        <div> 
+        <div className="magazine-content"> 
+            <h1>{props.magazineTitle}</h1>
             <div>
                 {manga.map(mang => (
                     <div key={mang.title}>
-                        <h3 key={mang.title}>{mang.title}</h3>
                         {mang.title ? <Manga title={mang.title} id={mang.mal_id} /> : null}
                     </div>
                     ))}

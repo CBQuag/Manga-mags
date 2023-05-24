@@ -29,6 +29,15 @@ const Pages = (props) => {
         })
     }
     
+    let img = document.querySelectorAll('img')
+    if (img) {
+        img.forEach(i => {
+            let aspect = i.naturalHeight / i.naturalWidth
+            if (aspect > 1)
+                return
+            i.setAttribute('class', 'wide')
+        })
+    }
     
     return (
         <div>

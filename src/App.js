@@ -9,21 +9,20 @@ import { Link } from 'react-router-dom';
 
 let style = {
   position: 'fixed',
-  top: '0px',
-  left: '0px'
+  textDecoration: 'none',
+  color:'white',
+  bottom: '0px',
+  right: '0px'
 }
 
 function App() {
   return (
     <div className="App">
-      {/* <Magazines page={1}/> */}
-      {/* <Mangas magazine={8}/> */}
-      <Link style={style} to='/'>back</Link>
-      
+      <Link style={style} to='/'>clear</Link>
+      <h1>Magazines</h1>
       <Routes>
         <Route path='/*' element={<Magazines page={1} />} />
       </Routes>
-      {/* <Manga title='vinland saga' chapter={1} /> */}
     </div>
   );
 }
