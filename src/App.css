@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+.manga-page{
+  max-width: 100%;
+}
