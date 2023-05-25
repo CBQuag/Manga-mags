@@ -17,13 +17,21 @@ let style = {
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <div className='mobile'>
+        <h1>Loading...</h1>
+        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
+      <div className="App">
+      
       <Link style={style} to='/'>clear</Link>
       <h1>Magazines</h1>
       <Routes>
         <Route path='/*' element={<Magazines page={1} />} />
       </Routes>
     </div>
+    </div>
+    
   );
 }
 
