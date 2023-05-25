@@ -45,12 +45,7 @@ body{
 }
 
 
-.manga-page{
-  max-width: 50%;
-}
-.wide{
-  width: 100%;
-}
+
 
 
 .magazine-control{
@@ -138,4 +133,24 @@ margin-left: 80px;
   margin-left: auto;
   margin-right: auto;
   width: 95%;
+}
+
+
+.inner-mag{
+  display: flex;
+  
+  align-items: center;
+}
+
+.pages{
+  display: flex;
+  flex-direction: row-reverse;
+  /* height: ; */
+}
+.manga-page{
+  max-width: 50%;
+  
+}
+.wide{
+  width: 100%;
 }

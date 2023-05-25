@@ -51,7 +51,8 @@ const Magazines = (props) => {
 
     let style = 
         mags.map(mag => ({
-            rotate:`${90+isLeaning(mag.mal_id)}deg`
+            rotate: `${90 + isLeaning(mag.mal_id)}deg`,
+            // backgroundColor: `rgb(${248+(isLeaning(mag.mal_id))}, ${234+(isLeaning(mag.mal_id))}, ${214+(isLeaning(mag.mal_id))})`
         }))
     
     return (

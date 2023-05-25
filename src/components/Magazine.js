@@ -8,6 +8,7 @@ const Magazine = (props) => {
 
     const [manga, setManga] = useState([]);
     const [pageLimit, limitPages] = useState(0);
+    const [pag, setPage]=useState(0)
     
     useEffect(() => {
         getMangas(props.magazine);
@@ -39,17 +40,37 @@ const Magazine = (props) => {
         }
     }
 
+    const decrement = () => {
+        setPage(pag>2?pag-2:pag)
+    }
+    const increment = () => {
+        setPage(pag+2)
+    }
+
+    document.addEventListener('keydown',(e)=>{
+        if (e.key == 'ArrowLeft') 
+            decrement()
+        if (e.key == 'ArrowRight')
+            increment()
+        console.log(pag)
+    })
+
     return (
         
         <div className="magazine-content"> 
             <h1>{props.magazineTitle}</h1>
-            <div>
-                {manga.map(mang => (
-                    <div key={mang.title}>
-                        {mang.title ? <Manga title={mang.title} id={mang.mal_id} /> : null}
-                    </div>
+            <div className="inner-mag">
+                <button onClick={()=>decrement()} className="left-mag">&#9664;</button>
+                <div className="pages">
+                    {manga.map(mang => (
+                        <div key={mang.title}>
+                            {mang.title ? <Manga title={mang.title} id={mang.mal_id} page={pag} /> : null}
+                        </div>
                     ))}
-            </div>     
+                </div> 
+                <button onClick={()=>increment()} className="right-mag">&#9654;</button>    
+            </div>
+               
         </div>
     )
 }

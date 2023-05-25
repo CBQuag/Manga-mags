@@ -15,6 +15,7 @@ const Pages = (props) => {
         getPics(currentChapter.id);
     }, [])
 
+    
     const [pics, setPics] = useState([]);
     const [chapterData, setCData] = useState('');
     
@@ -28,16 +29,28 @@ const Pages = (props) => {
             setCData(data)
         })
     }
-    
+
+
     let img = document.querySelectorAll('img')
+    let style = [];
+    let current = props.page;
+    let count = -1;
     if (img) {
-        img.forEach(i => {
+        img.forEach(i => {            
+            count++;
+            current==count?style.push(''):current==count-1?style.push(''):style.push('display:none')
+            i.setAttribute('class', `manga-page img${count}`)
+            i.setAttribute('style', style[count])
             let aspect = i.naturalHeight / i.naturalWidth
             if (aspect > 1)
                 return
-            i.setAttribute('class', 'wide')
+            style.push('display:none')
+            i.setAttribute('class', `wide img${count + 1}`)
+            count++
         })
     }
+
+    
     
     return (
         <div>
