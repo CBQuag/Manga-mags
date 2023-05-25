@@ -1,3 +1,11 @@
+To begin, choose a magazine from the list, or navigate different shelves of magazines with the arrow buttons
+Once a magazine is loaded, navigate the pages with the lower arrow buttons. If only one page is displayed, 
+click the adjust button to go forward one page
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
