@@ -46,6 +46,10 @@ body{
 
 
 
+.manga-area{
+  display: flex;
+  justify-content: center;
+}
 
 
 .magazine-control{
@@ -55,19 +59,29 @@ body{
   /* background-color: ; */
 }
 .left-mag{
-margin-right: 60px;
+margin-right: 50px;
 }
 .right-mag{
-margin-left: 80px;
+margin-left: 70px;
 }
-.right-mag,.left-mag{
-  height: 20px;
+.right-mag,.left-mag,.left-mag-p,.right-mag-p{
+  height: 100px;
+  width: 60px;
   background: none;
   border: none;
   color: rgb(188, 188, 188);
   font-weight: bold;
 }
-.right-mag:hover,.left-mag:hover{
+.left-mag-p, .right-mag-p{
+  height:500px
+}
+.adjust-mag{
+  background: none;
+  border: none;
+  color: rgb(188, 188, 188);
+  font-weight: bold;
+}
+.right-mag:hover,.left-mag:hover, .left-mag-p:hover, .right-mag-p:hover{
   color: white;
 }
 
