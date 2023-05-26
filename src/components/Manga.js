@@ -26,7 +26,7 @@ const Manga = (props) => {
     
     return (
         <div>   
-            {manga ? <Chapters id={manga.id} chapter={props.chapter ? props.chapter : 1} page={props.page} /> : null}
+            {manga ? <Chapters id={manga.id} chapter={props.chapter ? props.chapter : 1} /> : null}
         </div>
     )
 }

@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
+import PageContext from "./PageContext";
 
 
 
 const Pages = (props) => {
     const imgBaseUrl = "https://uploads.mangadex.org/";
-    const baseUrl    = "https://api.mangadex.org/at-home/"
+    const baseUrl = "https://api.mangadex.org/at-home/"
+    
+    const {pag}=useContext(PageContext)
 
     useEffect(() => {
         let currentChapter;
@@ -33,12 +36,11 @@ const Pages = (props) => {
 
     let img = document.querySelectorAll('img')
     let style = [];
-    let current = props.page;
     let count = -1;
     if (img) {
         img.forEach(i => {            
             count++;
-            current==count?style.push(''):current==count-1?style.push(''):style.push('display:none')
+            pag==count?style.push(''):pag==count-1?style.push(''):style.push('display:none')
             i.setAttribute('class', `manga-page img${count}`)
             i.setAttribute('style', style[count])
             let aspect = i.naturalHeight / i.naturalWidth

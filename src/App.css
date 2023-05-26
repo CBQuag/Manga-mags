@@ -56,6 +56,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-bottom: 10px solid; */
   /* background-color: ; */
 }
 .left-mag{

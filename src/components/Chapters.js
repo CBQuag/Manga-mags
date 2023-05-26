@@ -26,7 +26,7 @@ const Chapters = (props) => {
     return (
         <div>
             <div>
-                {chapters[0] ? <Pages chapterList={chapters} chapter={props.chapter} page={props.page} /> : null}
+                {chapters[0] ? <Pages chapterList={chapters} chapter={props.chapter} /> : null}
             </div>
         </div>
     )

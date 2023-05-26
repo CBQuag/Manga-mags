@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Manga from "./Manga";
+import PageContext from "./PageContext";
 
 
 const Magazine = (props) => {
@@ -15,13 +16,10 @@ const Magazine = (props) => {
             decrement(2)
         if (e.key === 'ArrowRight')
             increment(2)
-        console.log(pag)
+        // console.log(pag)
     }
     
     useEffect(() => {
-        
-        window.addEventListener('keydown', e=>handleKeyDown(e))
-        window.removeEventListener('keydown', e=>handleKeyDown(e))
         getMangas(props.magazine);
     }, [])
 
@@ -63,23 +61,24 @@ const Magazine = (props) => {
     
 
     return (
-        
-        <div className="magazine-content"> 
-            <h1>{props.magazineTitle}</h1>
-            <button onClick={() => increment(1)} className="adjust-mag">adjust</button>
-            <div className="inner-mag">
-                <button onClick={()=>decrement(2)} className="left-mag-p">&#9664;</button>
-                <div className="pages">
-                    {manga.map(mang => (
-                        <div key={mang.title}>
-                            {mang.title ? <Manga title={mang.title} id={mang.mal_id} page={pag} /> : null}
-                        </div>
-                    ))}
-                </div> 
-                <button onClick={()=>increment(2)} className="right-mag-p">&#9654;</button>    
+        <PageContext.Provider value={{pag, setPage}}>
+            <div onKeyDown={(e)=>handleKeyDown(e)} className="magazine-content"> 
+                <h1>{props.magazineTitle}</h1>
+                <button onClick={() => increment(1)} className="adjust-mag">adjust</button>
+                <div className="inner-mag">
+                    <button onClick={()=>decrement(2)} className="left-mag-p">&#9664;</button>
+                    <div className="pages">
+                        {manga.map(mang => (
+                            <div key={mang.title}>
+                                {mang.title ? <Manga title={mang.title} id={mang.mal_id} page={pag} /> : null}
+                            </div>
+                        ))}
+                    </div> 
+                    <button onClick={()=>increment(2)} className="right-mag-p">&#9654;</button>    
+                </div>
+                
             </div>
-            
-        </div>
+        </PageContext.Provider>
     )
 }
 export default Magazine
