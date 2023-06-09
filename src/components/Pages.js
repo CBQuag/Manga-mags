@@ -62,6 +62,7 @@ const Pages = (props) => {
                 (<img className='manga-page' key={pic}
                     src={`${imgBaseUrl}data/${chapterData.chapter.hash}/${pic}`}
                     alt='chapter page'
+                    loading='lazy'
                 />))}
             </div>    
         </div>

@@ -22,7 +22,6 @@ const Magazine = (props) => {
     useEffect(() => {
         getMangas(props.magazine);
     }, [])
-
     
 
     const getMangas = (magazine, page) => {
@@ -61,7 +60,7 @@ const Magazine = (props) => {
     
 
     return (
-        <PageContext.Provider value={{pag, setPage}}>
+        <PageContext.Provider value={{pag, setPage, }}>
             <div onKeyDown={(e)=>handleKeyDown(e)} className="magazine-content"> 
                 <h1>{props.magazineTitle}</h1>
                 <button onClick={() => increment(1)} className="adjust-mag">adjust</button>
@@ -70,7 +69,7 @@ const Magazine = (props) => {
                     <div className="pages">
                         {manga.map(mang => (
                             <div key={mang.title}>
-                                {mang.title ? <Manga title={mang.title} id={mang.mal_id} page={pag} /> : null}
+                                {mang.title ? <Manga title={mang.title} id={mang.mal_id}  /> : null}
                             </div>
                         ))}
                     </div> 
